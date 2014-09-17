@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{490412e6-77f3-4006-a947-e5218963d79b}" Title="Otteluseuranta" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Anssi Vaakanainen" Description="Finhockeyn alaisten sarjojen ottelu- ja tilastoseurantaan." Publisher="pienirinkula" BitsPerPixel="16">
+    <IconPath IsRelative="true" IsResource="false">otteluseuranta200x200.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_GAMERSERVICES" />
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_IDENTITY_USER" />
+      <Capability Name="ID_CAP_MEDIALIB" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="PivotApp1Token" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">otteluseuranta200x200 - Copy (2).png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>Otteluseuranta</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>
+<!-- WPSDK Version 7.1.8773.0 -->

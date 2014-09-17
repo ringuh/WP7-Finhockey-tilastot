@@ -1,0 +1,75 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PivotApp1.LohkoValitsin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton x:Name="BackFront" IconUri="/Assets/AppBar/appbar.back.rest.png" Text="Etusivu" Click="BackToFront"/>
+            <shell:ApplicationBarIconButton x:Name="VaihdaLohkoa" IconUri="/Assets/AppBar/appbar.transport.play.rest.png" Text="Lohko" Click="VahdaLohkoa"/>
+            <shell:ApplicationBarIconButton x:Name="Asetukset" IconUri="/Assets/AppBar/appbar.feature.settings.rest.png" Text="Asetukset" Click="GoToAsetukset"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="OtteluTemplate">
+            <Border BorderThickness="5">
+                <Grid Background="{StaticResource GridTausta}" Margin="0,2,0,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="2" Grid.ColumnSpan="1" Text="{Binding lohko}" Foreground="{StaticResource Teksti}" FontSize="24"/>
+
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="FINHOCKEY OTTELUSEURANTA" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Valitse lohko" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <toolkit:LongListSelector x:Name="LohkoList" Background="Transparent"                        
+                        ItemTemplate="{StaticResource OtteluTemplate}" SelectionChanged="LohkoValittu"
+                        GroupItemTemplate="{StaticResource groupItemTemplate}"                                
+                        GroupHeaderTemplate="{StaticResource groupHeader}"
+					    >
+
+                <toolkit:LongListSelector.GroupItemsPanel>
+
+                    <ItemsPanelTemplate>
+                        <toolkit:WrapPanel/>
+                    </ItemsPanelTemplate>
+
+                </toolkit:LongListSelector.GroupItemsPanel>
+            </toolkit:LongListSelector>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
